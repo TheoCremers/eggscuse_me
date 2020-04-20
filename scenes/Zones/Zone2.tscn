@@ -7,16 +7,16 @@
 [ext_resource path="res://scenes/AccelArrow.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Box.tscn" type="PackedScene" id=6]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 128, 256 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 160, 256 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 64, 128 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 192, 128 )
 
 [node name="Zone2" type="Node2D" groups=[
@@ -31,14 +31,14 @@ target = 1
 
 [node name="CollisionShape2D" parent="Triggers/EvilEye/DetectionArea" index="0"]
 position = Vector2( 0, 96 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="EvilEye2" parent="Triggers" instance=ExtResource( 2 )]
 position = Vector2( 1408, -192 )
 target = 1
 
 [node name="CollisionShape2D" parent="Triggers/EvilEye2/DetectionArea" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Interactables" type="Node2D" parent="."]
 position = Vector2( -1, 0 )
@@ -92,7 +92,7 @@ max_increments = 6
 tile_data = PoolIntArray( -65537, 0, 0, -131072, 0, 2, -1, 0, 65536, -65536, 0, 65541, 65535, 0, 65536, 0, 0, 65541, 131071, 0, 196608, 65536, 0, 196610 )
 
 [node name="CollisionShape2D" parent="Moving/MovingPlatform" index="1"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="MovingPlatform2" parent="Moving" instance=ExtResource( 3 )]
 position = Vector2( 832, -448 )
@@ -104,7 +104,7 @@ max_increments = 9
 tile_data = PoolIntArray( -65537, 0, 0, -131072, 0, 2, -1, 0, 65536, -65536, 0, 65541, 65535, 0, 65536, 0, 0, 65541, 131071, 0, 196608, 65536, 0, 196613 )
 
 [node name="CollisionShape2D" parent="Moving/MovingPlatform2" index="1"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="MovingPlatform3" parent="Moving" instance=ExtResource( 3 )]
 position = Vector2( 1408, 192 )
@@ -116,7 +116,7 @@ max_increments = 6
 tile_data = PoolIntArray( -65539, 0, 0, -65538, 0, 1, -65537, 0, 1, -131072, 0, 1, -131071, 0, 1, -131070, 0, 5, -3, 0, 65536, -2, 0, 65537, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65541, 65533, 0, 65536, 65534, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 65541, 131069, 0, 196608, 131070, 0, 196609, 131071, 0, 196609, 65536, 0, 196609, 65537, 0, 196609, 65538, 0, 196613 )
 
 [node name="CollisionShape2D" parent="Moving/MovingPlatform3" index="1"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="SolidTilemap" type="TileMap" parent="."]
 z_index = 1

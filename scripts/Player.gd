@@ -97,7 +97,6 @@ func _physics_process(delta):
 	var floor_velocity = get_floor_velocity()
 	if floor_velocity != prev_floor_velocity:
 		velocity += prev_floor_velocity
-		print(prev_floor_velocity)
 	prev_floor_velocity = floor_velocity
 	
 	# check rapid deceleration (fall too hard)

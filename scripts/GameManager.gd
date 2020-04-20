@@ -109,11 +109,10 @@ func play_ending(type):
 	restart_tip.visible = false
 	if not ending:
 		ending = true
-		if type == 1 or type == 2:
-			player.yeet()
-			var ending_screen = load("res://scenes/EndingScreen.tscn").instance()
-			ending_screen.ending_type = type
-			get_node("/root/Game/Overlay").add_child(ending_screen)
+		player.yeet()
+		var ending_screen = load("res://scenes/EndingScreen.tscn").instance()
+		ending_screen.ending_type = type
+		get_node("/root/Game/Overlay").add_child(ending_screen)
 
 func reload_scenes():
 	for i in range(0, saved_scenes.size()):
