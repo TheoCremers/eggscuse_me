@@ -1,0 +1,102 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scripts/TransitionZone.gd" type="Script" id=1]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0007.tres" type="Texture" id=2]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0005.tres" type="Texture" id=3]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0006.tres" type="Texture" id=4]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0001.tres" type="Texture" id=5]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0000.tres" type="Texture" id=6]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0004.tres" type="Texture" id=7]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0002.tres" type="Texture" id=8]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0003.tres" type="Texture" id=9]
+[ext_resource path="res://scenes/EvilEye.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/MovingTilemap.tscn" type="PackedScene" id=11]
+[ext_resource path="res://res/TileSet-WithCollision.tres" type="TileSet" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Close",
+"speed": 16.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 160, 160 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 64, 128 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 160, 160 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 64, 128 )
+
+[node name="TransitionZone" type="Node2D" groups=[
+"Zones",
+]]
+script = ExtResource( 1 )
+
+[node name="EvilEye" parent="." instance=ExtResource( 10 )]
+position = Vector2( 288, -160 )
+frames = SubResource( 1 )
+target = 2
+
+[node name="CollisionShape2D" parent="EvilEye/DetectionArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="MovingPlatform" parent="." instance=ExtResource( 11 )]
+position = Vector2( 448, -128 )
+connected = true
+movement = Vector2( 0, -512 )
+max_increments = 30
+
+[node name="Tilemap" parent="MovingPlatform" index="0"]
+tile_data = PoolIntArray( -65537, 0, 131072, -131072, 0, 65541, -1, 0, 131072, -65536, 0, 65541, 65535, 0, 131072, 0, 0, 65541, 131071, 0, 196608, 65536, 0, 196610 )
+
+[node name="CollisionShape2D" parent="MovingPlatform" index="1"]
+shape = SubResource( 3 )
+
+[node name="EvilEye2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 928, -160 )
+frames = SubResource( 1 )
+target = 2
+
+[node name="CollisionShape2D" parent="EvilEye2/DetectionArea" index="0"]
+shape = SubResource( 4 )
+
+[node name="MovingPlatform2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1088, -128 )
+connected = true
+movement = Vector2( 0, -512 )
+max_increments = 30
+
+[node name="Tilemap" parent="MovingPlatform2" index="0"]
+tile_data = PoolIntArray( -65537, 0, 65536, -131072, 0, 65541, -1, 0, 65536, -65536, 0, 65541, 65535, 0, 65536, 0, 0, 65541, 131071, 0, 196608, 65536, 0, 196610 )
+
+[node name="CollisionShape2D" parent="MovingPlatform2" index="1"]
+shape = SubResource( 5 )
+
+[node name="SolidTileMap" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 12 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -524282, 0, 65537, -524281, 0, 65537, -524272, 0, 65537, -524271, 0, 65537, -458746, 0, 65537, -458745, 0, 65537, -458736, 0, 65537, -458735, 0, 65537, -393210, 0, 65537, -393209, 0, 65537, -393200, 0, 65537, -393199, 0, 65537, -327679, 0, 131074, -327678, 0, 196612, -327677, 0, 196612, -327676, 0, 196612, -327675, 0, 196612, -327674, 0, 196612, -327673, 0, 196612, -327672, 0, 196612, -327671, 0, 196612, -327670, 0, 196612, -327669, 0, 196612, -327668, 0, 196612, -327667, 0, 196612, -327666, 0, 196612, -327665, 0, 196612, -327664, 0, 196612, -327663, 0, 196612, -327662, 0, 196612, -327661, 0, 196612, -327660, 0, 196612, -327659, 0, 196612, -327658, 0, 65540, -262143, 0, 65541, -262122, 0, 65536, -196608, 0, 196612, -196607, 0, 196610, -196586, 0, 196608, -196585, 0, 196612, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 1, 12, 0, 1, 13, 0, 1, 14, 0, 1, 15, 0, 1, 16, 0, 1, 17, 0, 1, 18, 0, 1, 19, 0, 1, 20, 0, 1, 21, 0, 1, 22, 0, 1, 23, 0, 1 )
+
+[node name="LoadPoint" type="Node2D" parent="."]
+position = Vector2( 1536, 0 )
+[connection signal="detected" from="EvilEye" to="MovingPlatform" method="_on_positive_external_signal"]
+[connection signal="lost" from="EvilEye" to="MovingPlatform" method="_on_negative_external_signal"]
+[connection signal="detected" from="EvilEye2" to="MovingPlatform2" method="_on_positive_external_signal"]
+[connection signal="lost" from="EvilEye2" to="MovingPlatform2" method="_on_negative_external_signal"]
+
+[editable path="EvilEye"]
+
+[editable path="MovingPlatform"]
+
+[editable path="EvilEye2"]
+
+[editable path="MovingPlatform2"]

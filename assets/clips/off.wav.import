@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/off.wav-259815cb3844f701a4f98021fc8b20bb.sample"
+
+[deps]
+
+source_file="res://assets/clips/off.wav"
+dest_files=[ "res://.import/off.wav-259815cb3844f701a4f98021fc8b20bb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

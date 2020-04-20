@@ -1,0 +1,15 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+path="res://.import/player.tpsheet-f9b9d372bec55cf74db398012e8aabba.res"
+
+[deps]
+
+files=[ "res://assets/player.sprites/player_hold.tres", "res://assets/player.sprites/player_stand.tres" ]
+
+source_file="res://assets/player.tpsheet"
+dest_files=[ "res://.import/player.tpsheet-f9b9d372bec55cf74db398012e8aabba.res", "res://assets/player.sprites/player_hold.tres", "res://assets/player.sprites/player_stand.tres" ]
+
+[params]
+

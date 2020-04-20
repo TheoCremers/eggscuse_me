@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://res/TileSet-WithCollision.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/EvilEye.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/FinalArrow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/FakeWall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/MovingTilemap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/Avara.tres" type="DynamicFont" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 384, 352 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 480, 352 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 256, 128 )
+
+[node name="Zone" type="Node2D" groups=[
+"Zones",
+]]
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="EvilEye" parent="Triggers" instance=ExtResource( 2 )]
+position = Vector2( 2560, -320 )
+
+[node name="CollisionShape2D" parent="Triggers/EvilEye/DetectionArea" index="0"]
+position = Vector2( -96, -32 )
+shape = SubResource( 1 )
+
+[node name="EvilEye2" parent="Triggers" instance=ExtResource( 2 )]
+position = Vector2( 1024, -352 )
+
+[node name="CollisionShape2D" parent="Triggers/EvilEye2/DetectionArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="FinalArrow" parent="Interactables" instance=ExtResource( 3 )]
+position = Vector2( 1792, -416 )
+
+[node name="Moving" type="Node2D" parent="."]
+
+[node name="MovingPlatform" parent="Moving" instance=ExtResource( 5 )]
+position = Vector2( 2944, -256 )
+connected = true
+movement = Vector2( 0, 64 )
+max_increments = 120
+
+[node name="SolidTilemap" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 1 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -917493, 0, 65541, -917460, 0, 65536, -851957, 0, 65541, -851924, 0, 65536, -786421, 0, 65541, -786388, 0, 65536, -720885, 0, 65541, -720852, 0, 65536, -655349, 0, 65541, -655316, 0, 65536, -589813, 0, 65541, -589780, 0, 65536, -524277, 0, 65541, -524244, 0, 65536, -458741, 0, 65541, -458708, 0, 65536, -393205, 0, 65541, -393172, 0, 65536, -393171, 0, 65537, -393170, 0, 65537, -393169, 0, 65537, -393165, 0, 131074, -393164, 0, 196609, -393163, 0, 196609, -393162, 0, 196609, -393161, 0, 196609, -393160, 0, 196609, -393159, 0, 196609, -393158, 0, 65540, -327669, 0, 65541, -327636, 0, 65536, -327635, 0, 65537, -327634, 0, 65537, -327633, 0, 65537, -327629, 0, 65541, -327622, 0, 65536, -262133, 0, 65541, -262120, 3, 0, -262118, 0, 1, -262117, 0, 1, -262116, 0, 1, -262115, 0, 1, -262114, 1, 0, -262100, 0, 65536, -262099, 0, 65537, -262098, 0, 65537, -262097, 0, 65537, -262093, 0, 65541, -262086, 0, 65536, -196608, 0, 196609, -196607, 0, 196609, -196606, 0, 196609, -196605, 0, 196609, -196604, 0, 196609, -196603, 0, 196609, -196602, 0, 196609, -196601, 0, 196609, -196600, 0, 196609, -196599, 0, 196609, -196598, 0, 196609, -196597, 0, 196610, -196586, 3, 0, -196576, 1, 0, -196564, 0, 196608, -196563, 0, 196609, -196562, 0, 196609, -196561, 0, 196609, -196560, 0, 196609, -196559, 0, 196609, -196558, 0, 196609, -196557, 0, 196613, -196550, 0, 65536, -131052, 3, 0, -131038, 1, 0, -131014, 0, 65536, -65518, 3, 0, -65500, 1, 0, -65478, 0, 65536, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 1, 12, 0, 1, 13, 0, 1, 14, 0, 1, 15, 0, 1, 16, 0, 1, 17, 0, 1, 38, 0, 1, 39, 0, 1, 40, 0, 1, 41, 0, 1, 42, 0, 1, 43, 0, 1, 44, 0, 1, 45, 0, 1, 46, 0, 1, 47, 0, 1, 48, 0, 1, 49, 0, 1, 50, 0, 1, 51, 0, 1, 52, 0, 1, 53, 0, 1, 54, 0, 1, 55, 0, 1, 56, 0, 1, 57, 0, 1, 58, 0, 131076 )
+
+[node name="HiddenTiles" type="Node2D" parent="."]
+z_index = 2
+
+[node name="FakeWall" parent="HiddenTiles" instance=ExtResource( 4 )]
+position = Vector2( 3072, -64 )
+
+[node name="FakeTilemap" parent="HiddenTiles/FakeWall" index="0"]
+tile_data = PoolIntArray( -65540, 0, 65536, -65539, 0, 65537, -65538, 0, 65537, -65537, 0, 65537, -131072, 0, 65537, -131071, 0, 65537, -131070, 0, 65537, -131069, 0, 65541, -4, 0, 65536, -3, 0, 65537, -2, 0, 65537, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65537, -65533, 0, 65541, 65532, 0, 65536, 65533, 0, 65537, 65534, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65541, 131068, 0, 131076, 131069, 0, 65537, 131070, 0, 65537, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65538 )
+
+[node name="CollisionShape2D" parent="HiddenTiles/FakeWall" index="1"]
+shape = SubResource( 3 )
+
+[node name="EndPoint" type="Node2D" parent="."]
+
+[node name="Labels" type="Node2D" parent="."]
+z_index = -5
+
+[node name="SecretLabel" type="Label" parent="Labels"]
+show_behind_parent = true
+margin_left = 3328.0
+margin_top = -288.0
+margin_right = 3712.0
+margin_bottom = -227.0
+custom_fonts/font = ExtResource( 6 )
+text = "You have found the secret
+alternate ending:
+The safety box!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="detected" from="Triggers/EvilEye" to="Moving/MovingPlatform" method="_on_positive_external_signal"]
+[connection signal="lost" from="Triggers/EvilEye" to="Moving/MovingPlatform" method="_on_negative_external_signal"]
+
+[editable path="Triggers/EvilEye"]
+
+[editable path="Triggers/EvilEye2"]
+
+[editable path="HiddenTiles/FakeWall"]

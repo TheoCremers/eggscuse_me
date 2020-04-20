@@ -1,0 +1,15 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+path="res://.import/eye.tpsheet-80f44792800d40ecbedf3aacfd0072d8.res"
+
+[deps]
+
+files=[ "res://assets/eye.sprites/eyeball.tres", "res://assets/eye.sprites/eyeball_g.tres", "res://assets/eye.sprites/eyelid/eyelid_0000.tres", "res://assets/eye.sprites/eyelid/eyelid_0001.tres", "res://assets/eye.sprites/eyelid/eyelid_0002.tres", "res://assets/eye.sprites/eyelid/eyelid_0003.tres", "res://assets/eye.sprites/eyelid/eyelid_0004.tres", "res://assets/eye.sprites/eyelid/eyelid_0005.tres", "res://assets/eye.sprites/eyelid/eyelid_0006.tres", "res://assets/eye.sprites/eyelid/eyelid_0007.tres" ]
+
+source_file="res://assets/eye.tpsheet"
+dest_files=[ "res://.import/eye.tpsheet-80f44792800d40ecbedf3aacfd0072d8.res", "res://assets/eye.sprites/eyeball.tres", "res://assets/eye.sprites/eyeball_g.tres", "res://assets/eye.sprites/eyelid/eyelid_0000.tres", "res://assets/eye.sprites/eyelid/eyelid_0001.tres", "res://assets/eye.sprites/eyelid/eyelid_0002.tres", "res://assets/eye.sprites/eyelid/eyelid_0003.tres", "res://assets/eye.sprites/eyelid/eyelid_0004.tres", "res://assets/eye.sprites/eyelid/eyelid_0005.tres", "res://assets/eye.sprites/eyelid/eyelid_0006.tres", "res://assets/eye.sprites/eyelid/eyelid_0007.tres" ]
+
+[params]
+

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://res/TileSet-WithCollision.tres" type="TileSet" id=1]
+
+[node name="Zone" type="Node2D" groups=[
+"Zones",
+]]
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Moving" type="Node2D" parent="."]
+
+[node name="SolidTilemap" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 1 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+
+[node name="HiddenTiles" type="Node2D" parent="."]
+z_index = 2
+
+[node name="EndPoint" type="Node2D" parent="."]

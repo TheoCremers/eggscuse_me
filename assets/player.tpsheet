@@ -1,0 +1,48 @@
+{
+	"textures": [
+		{
+			"image": "player.png",
+			"size": {
+				"w": 46,
+				"h": 140
+			},
+			"sprites": [
+				{
+					"filename": "player_hold.png",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 44,
+						"h": 68
+					},
+					"margin": {
+						"x": 26,
+						"y": 13,
+						"w": 52,
+						"h": 28
+					}
+				},
+				{
+					"filename": "player_stand.png",
+					"region": {
+						"x": 1,
+						"y": 71,
+						"w": 44,
+						"h": 68
+					},
+					"margin": {
+						"x": 26,
+						"y": 13,
+						"w": 52,
+						"h": 28
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:dd16ae46481aafc416a86975a2c9d4c5:7a8d5f7b15d171d09708f87b34df6232:0f3c3fc01f5f43cf60290b5024bbe8b7$"
+	}
+}

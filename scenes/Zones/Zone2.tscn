@@ -1,0 +1,149 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://res/TileSet-WithCollision.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/EvilEye.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/MovingTilemap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Spikes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/AccelArrow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Box.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 128, 256 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 160, 256 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64, 128 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 192, 128 )
+
+[node name="Zone2" type="Node2D" groups=[
+"Zones",
+]]
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="EvilEye" parent="Triggers" instance=ExtResource( 2 )]
+position = Vector2( 544, -256 )
+target = 1
+
+[node name="CollisionShape2D" parent="Triggers/EvilEye/DetectionArea" index="0"]
+position = Vector2( 0, 96 )
+shape = SubResource( 4 )
+
+[node name="EvilEye2" parent="Triggers" instance=ExtResource( 2 )]
+position = Vector2( 1408, -192 )
+target = 1
+
+[node name="CollisionShape2D" parent="Triggers/EvilEye2/DetectionArea" index="0"]
+shape = SubResource( 1 )
+
+[node name="Interactables" type="Node2D" parent="."]
+position = Vector2( -1, 0 )
+
+[node name="Spikes" parent="Interactables" instance=ExtResource( 4 )]
+position = Vector2( 737, 96 )
+
+[node name="Spikes2" parent="Interactables" instance=ExtResource( 4 )]
+position = Vector2( 801, 96 )
+
+[node name="Spikes3" parent="Interactables" instance=ExtResource( 4 )]
+position = Vector2( 1249, -608 )
+rotation = -3.14159
+
+[node name="Spikes4" parent="Interactables" instance=ExtResource( 4 )]
+position = Vector2( 1313, -608 )
+rotation = -3.14159
+
+[node name="Spikes5" parent="Interactables" instance=ExtResource( 4 )]
+position = Vector2( 1377, -608 )
+rotation = -3.14159
+
+[node name="Spikes6" parent="Interactables" instance=ExtResource( 4 )]
+position = Vector2( 1441, -608 )
+rotation = -3.14159
+
+[node name="Spikes7" parent="Interactables" instance=ExtResource( 4 )]
+position = Vector2( 2401, -96 )
+rotation = -1.5708
+
+[node name="Spikes8" parent="Interactables" instance=ExtResource( 4 )]
+position = Vector2( 2401, -32 )
+rotation = -1.5708
+
+[node name="AccelArrow" parent="Interactables" instance=ExtResource( 5 )]
+position = Vector2( 1985, -64 )
+acceleration = Vector2( 1500, 0 )
+
+[node name="Box" parent="Interactables" instance=ExtResource( 6 )]
+position = Vector2( 1825, -672 )
+
+[node name="Moving" type="Node2D" parent="."]
+
+[node name="MovingPlatform" parent="Moving" instance=ExtResource( 3 )]
+position = Vector2( 448, 128 )
+connected = true
+movement = Vector2( 0, -960 )
+max_increments = 6
+
+[node name="Tilemap" parent="Moving/MovingPlatform" index="0"]
+tile_data = PoolIntArray( -65537, 0, 0, -131072, 0, 2, -1, 0, 65536, -65536, 0, 65541, 65535, 0, 65536, 0, 0, 65541, 131071, 0, 196608, 65536, 0, 196610 )
+
+[node name="CollisionShape2D" parent="Moving/MovingPlatform" index="1"]
+shape = SubResource( 2 )
+
+[node name="MovingPlatform2" parent="Moving" instance=ExtResource( 3 )]
+position = Vector2( 832, -448 )
+connected = true
+movement = Vector2( 0, 960 )
+max_increments = 9
+
+[node name="Tilemap" parent="Moving/MovingPlatform2" index="0"]
+tile_data = PoolIntArray( -65537, 0, 0, -131072, 0, 2, -1, 0, 65536, -65536, 0, 65541, 65535, 0, 65536, 0, 0, 65541, 131071, 0, 196608, 65536, 0, 196613 )
+
+[node name="CollisionShape2D" parent="Moving/MovingPlatform2" index="1"]
+shape = SubResource( 2 )
+
+[node name="MovingPlatform3" parent="Moving" instance=ExtResource( 3 )]
+position = Vector2( 1408, 192 )
+connected = true
+movement = Vector2( 0, -960 )
+max_increments = 6
+
+[node name="Tilemap" parent="Moving/MovingPlatform3" index="0"]
+tile_data = PoolIntArray( -65539, 0, 0, -65538, 0, 1, -65537, 0, 1, -131072, 0, 1, -131071, 0, 1, -131070, 0, 5, -3, 0, 65536, -2, 0, 65537, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65541, 65533, 0, 65536, 65534, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 65541, 131069, 0, 196608, 131070, 0, 196609, 131071, 0, 196609, 65536, 0, 196609, 65537, 0, 196609, 65538, 0, 196613 )
+
+[node name="CollisionShape2D" parent="Moving/MovingPlatform3" index="1"]
+shape = SubResource( 3 )
+
+[node name="SolidTilemap" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 1 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -917482, 0, 131074, -917481, 0, 196612, -917480, 0, 196612, -917479, 0, 196612, -917478, 0, 196612, -917477, 0, 196612, -917476, 0, 196612, -917475, 0, 196612, -917474, 0, 65540, -851946, 0, 65541, -851938, 0, 65536, -786410, 0, 65541, -786402, 0, 65536, -720880, 0, 131074, -720879, 0, 196609, -720878, 0, 196609, -720877, 0, 196609, -720876, 0, 196609, -720875, 0, 196609, -720874, 0, 196610, -720866, 0, 65536, -655344, 0, 65541, -655333, 0, 0, -655332, 0, 1, -655331, 0, 1, -655330, 0, 131076, -589812, 0, 65537, -589811, 0, 65537, -589808, 0, 65541, -589797, 0, 196608, -589796, 0, 196609, -589795, 0, 196609, -589794, 0, 65540, -589791, 0, 131074, -589790, 0, 196609, -589789, 0, 196609, -589788, 0, 196609, -589787, 0, 196609, -589786, 0, 196609, -589785, 0, 65540, -524276, 0, 131073, -524275, 0, 131073, -524272, 0, 65541, -524258, 0, 65536, -524255, 0, 65541, -524249, 0, 65536, -458741, 0, 131074, -458740, 0, 196612, -458739, 0, 196612, -458738, 0, 65540, -458736, 0, 65541, -458722, 0, 65536, -458719, 0, 65541, -458713, 0, 196608, -458712, 0, 196609, -393215, 0, 131074, -393214, 0, 196609, -393213, 0, 196609, -393212, 0, 196609, -393211, 0, 196609, -393210, 0, 196609, -393209, 0, 196609, -393208, 0, 196609, -393207, 0, 196609, -393206, 0, 196609, -393205, 0, 196610, -393202, 0, 196608, -393201, 0, 196609, -393200, 0, 196610, -393186, 0, 65536, -393183, 0, 65541, -327679, 0, 65541, -327650, 0, 65536, -327647, 0, 65541, -262143, 0, 65541, -262114, 0, 131072, -262111, 0, 65541, -262107, 0, 0, -262106, 0, 1, -262105, 0, 1, -262104, 0, 1, -196608, 0, 196609, -196607, 0, 196610, -196578, 0, 196608, -196577, 0, 196609, -196576, 0, 196609, -196575, 0, 196613, -196571, 0, 196608, -196570, 0, 65540, -131034, 0, 65536, -65498, 0, 65536, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 2, 8, 0, 0, 9, 0, 1, 10, 0, 2, 13, 0, 0, 14, 0, 1, 15, 0, 1, 16, 0, 1, 17, 1, 0, 25, 3, 0, 27, 0, 4, 28, 0, 4, 29, 0, 1, 30, 0, 1, 31, 0, 1, 32, 0, 1, 33, 0, 1, 34, 0, 1, 35, 0, 1, 36, 0, 1, 37, 0, 1, 38, 0, 131076, 65541, 0, 65538, 65542, 0, 4, 65543, 0, 4, 65544, 0, 131076, 65546, 0, 65541, 65549, 0, 65536, 65555, 0, 1, 65556, 0, 2, 65559, 0, 3, 65560, 0, 4, 131078, 0, 65537, 131079, 0, 65537, 131082, 0, 65538, 131083, 0, 1, 131084, 0, 1, 131085, 0, 131076, 131091, 0, 65537, 131092, 0, 65538, 131093, 0, 4, 131094, 0, 4, 131095, 0, 131076, 131096, 0, 65537, 196614, 0, 65537, 196615, 0, 65537, 196627, 0, 65537, 196628, 0, 65537, 196629, 0, 65537, 196630, 0, 65537, 196631, 0, 65537, 196632, 0, 65537, 262163, 0, 65537, 262164, 0, 65537, 262165, 0, 65537, 262166, 0, 65537, 262167, 0, 65537, 262168, 0, 65537 )
+
+[node name="HiddenTiles" type="Node2D" parent="."]
+z_index = 2
+
+[node name="EndPoint" type="Node2D" parent="."]
+position = Vector2( 2624, -256 )
+[connection signal="detected" from="Triggers/EvilEye" to="Moving/MovingPlatform" method="_on_positive_external_signal"]
+[connection signal="detected" from="Triggers/EvilEye" to="Moving/MovingPlatform2" method="_on_negative_external_signal"]
+[connection signal="lost" from="Triggers/EvilEye" to="Moving/MovingPlatform" method="_on_negative_external_signal"]
+[connection signal="lost" from="Triggers/EvilEye" to="Moving/MovingPlatform2" method="_on_positive_external_signal"]
+[connection signal="detected" from="Triggers/EvilEye2" to="Moving/MovingPlatform3" method="_on_positive_external_signal"]
+[connection signal="lost" from="Triggers/EvilEye2" to="Moving/MovingPlatform3" method="_on_negative_external_signal"]
+
+[editable path="Triggers/EvilEye"]
+
+[editable path="Triggers/EvilEye2"]
+
+[editable path="Moving/MovingPlatform"]
+
+[editable path="Moving/MovingPlatform2"]
+
+[editable path="Moving/MovingPlatform3"]
