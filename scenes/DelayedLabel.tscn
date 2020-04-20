@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/DelayedLabel.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Avara.tres" type="DynamicFont" id=2]
+
+[node name="DelayedLabel" type="Label"]
+show_behind_parent = true
+margin_left = 576.0
+margin_top = 256.0
+margin_right = 952.0
+margin_bottom = 317.0
+custom_fonts/font = ExtResource( 2 )
+text = "'E' to grab (or LMB / joypad 0)"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

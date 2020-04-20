@@ -1,0 +1,335 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://res/TileSet-WithCollision.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/Spikes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/EvilEye.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/MovingPlatform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/DelayedLabel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/WeakFloor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/FakeWall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/MovingTilemap.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 384, 256 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 320, 192 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 160, 160 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 64.0002, 128 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 128, 128 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 128, 128 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 112, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 128, 32 )
+
+[node name="Zone5" type="Node2D" groups=[
+"Zones",
+]]
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="EvilEye" parent="Triggers" instance=ExtResource( 3 )]
+position = Vector2( 3008, -160 )
+
+[node name="CollisionShape2D" parent="Triggers/EvilEye/DetectionArea" index="0"]
+shape = SubResource( 1 )
+
+[node name="EvilEye2" parent="Triggers" instance=ExtResource( 3 )]
+position = Vector2( 640, -128 )
+target = 1
+
+[node name="CollisionShape2D" parent="Triggers/EvilEye2/DetectionArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="EvilEye3" parent="Triggers" instance=ExtResource( 3 )]
+position = Vector2( 3936, -160 )
+target = 2
+
+[node name="CollisionShape2D" parent="Triggers/EvilEye3/DetectionArea" index="0"]
+shape = SubResource( 5 )
+
+[node name="EvilEye4" parent="Triggers" instance=ExtResource( 3 )]
+position = Vector2( 4576, -160 )
+target = 2
+
+[node name="CollisionShape2D" parent="Triggers/EvilEye4/DetectionArea" index="0"]
+shape = SubResource( 5 )
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Spikes" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 2848, 160 )
+
+[node name="Spikes2" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 2912, 160 )
+
+[node name="Spikes3" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 2976, 160 )
+
+[node name="Spikes4" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 3040, 160 )
+
+[node name="Spikes5" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 3104, 160 )
+
+[node name="Spikes6" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 3168, 160 )
+
+[node name="Spikes20" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 4320, 96 )
+
+[node name="Spikes19" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 4384, 96 )
+
+[node name="Spikes18" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 4448, 96 )
+
+[node name="Spikes17" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 4512, 96 )
+
+[node name="Spikes12" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 480, 160 )
+
+[node name="Spikes11" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 544, 160 )
+
+[node name="Spikes10" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 608, 160 )
+
+[node name="Spikes9" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 672, 160 )
+
+[node name="Spikes8" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 736, 160 )
+
+[node name="Spikes7" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 800, 160 )
+
+[node name="Spikes13" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 1440, 160 )
+
+[node name="Spikes14" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 1504, 160 )
+
+[node name="Spikes15" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 2400, -224 )
+
+[node name="Spikes16" parent="Interactables" instance=ExtResource( 2 )]
+position = Vector2( 2464, -224 )
+
+[node name="Moving" type="Node2D" parent="."]
+
+[node name="MovingPlatform" parent="Moving" instance=ExtResource( 4 )]
+position = Vector2( 2912, 96 )
+connected = true
+movement = Vector2( -392, 0 )
+max_increments = 30
+
+[node name="MovingPlatform2" parent="Moving" instance=ExtResource( 4 )]
+position = Vector2( 3104, 96 )
+connected = true
+movement = Vector2( 394, 0 )
+max_increments = 30
+
+[node name="MovingPlatform4" parent="Moving" instance=ExtResource( 4 )]
+position = Vector2( 544, 96 )
+connected = true
+movement = Vector2( -196, 0 )
+max_increments = 60
+
+[node name="MovingPlatform3" parent="Moving" instance=ExtResource( 4 )]
+position = Vector2( 736, 96 )
+connected = true
+movement = Vector2( 196, 0 )
+max_increments = 60
+
+[node name="MovingPlatform5" parent="Moving" instance=ExtResource( 8 )]
+position = Vector2( 4096, -128 )
+connected = true
+movement = Vector2( 0, -512 )
+max_increments = 30
+
+[node name="Tilemap" parent="Moving/MovingPlatform5" index="0"]
+tile_data = PoolIntArray( -65537, 0, 65536, -131072, 0, 65541, -1, 0, 65536, -65536, 0, 65541, 65535, 0, 65536, 0, 0, 65541, 131071, 0, 196608, 65536, 0, 196613 )
+
+[node name="CollisionShape2D" parent="Moving/MovingPlatform5" index="1"]
+shape = SubResource( 6 )
+
+[node name="MovingPlatform6" parent="Moving" instance=ExtResource( 8 )]
+position = Vector2( 4736, -128 )
+connected = true
+movement = Vector2( 0, -512 )
+max_increments = 30
+
+[node name="Tilemap" parent="Moving/MovingPlatform6" index="0"]
+tile_data = PoolIntArray( -65537, 0, 65536, -131072, 0, 65541, -1, 0, 65536, -65536, 0, 65541, 65535, 0, 65536, 0, 0, 65541, 131071, 0, 196608, 65536, 0, 196613 )
+
+[node name="CollisionShape2D" parent="Moving/MovingPlatform6" index="1"]
+shape = SubResource( 6 )
+
+[node name="SolidTilemap" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 1 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -983019, 0, 131074, -983018, 0, 196609, -983017, 0, 196609, -983016, 0, 196609, -983015, 0, 196609, -983014, 0, 196609, -983013, 0, 196609, -983012, 0, 196609, -983011, 0, 196609, -983010, 0, 196609, -983009, 0, 196609, -983008, 0, 196609, -983007, 0, 196609, -983006, 0, 196609, -983005, 0, 196609, -983004, 0, 196609, -983003, 0, 196609, -983002, 0, 196609, -983001, 0, 196609, -983000, 0, 196609, -982999, 0, 196609, -982998, 0, 196609, -982997, 0, 196609, -982996, 0, 196609, -982995, 0, 196609, -982994, 0, 196609, -982993, 0, 196609, -982992, 0, 196609, -982991, 0, 196609, -982990, 0, 196609, -982989, 0, 196609, -982988, 0, 196609, -982987, 0, 65540, -917483, 0, 65541, -917451, 0, 65536, -851947, 0, 65541, -851915, 0, 65536, -786411, 0, 65541, -786408, 0, 0, -786407, 0, 1, -786406, 0, 1, -786405, 0, 1, -786404, 0, 1, -786403, 0, 1, -786402, 0, 1, -786401, 0, 1, -786400, 0, 1, -786399, 0, 1, -786398, 0, 1, -786397, 0, 1, -786396, 0, 1, -786395, 0, 5, -786390, 0, 0, -786389, 0, 1, -786388, 0, 1, -786387, 0, 1, -786386, 0, 1, -786385, 0, 1, -786384, 0, 1, -786383, 0, 5, -786379, 0, 65536, -720875, 0, 65541, -720872, 0, 196608, -720871, 0, 196609, -720870, 0, 196609, -720869, 0, 196609, -720868, 0, 196609, -720867, 0, 196609, -720866, 0, 196609, -720865, 0, 196609, -720864, 0, 196609, -720863, 0, 196609, -720862, 0, 196609, -720861, 0, 196609, -720860, 0, 196609, -720859, 0, 196613, -720858, 5, 0, -720855, 5, 0, -720854, 0, 196608, -720853, 0, 65540, -720852, 0, 131074, -720851, 0, 196609, -720850, 0, 196609, -720849, 0, 196609, -720848, 0, 196609, -720847, 0, 196613, -720846, 5, 0, -720843, 0, 65536, -655339, 0, 65541, -655317, 0, 65536, -655316, 0, 65541, -655307, 0, 65536, -589803, 0, 65541, -589781, 0, 65536, -589780, 0, 65541, -589771, 0, 65536, -589761, 0, 65537, -589760, 0, 65537, -589751, 0, 65537, -589750, 0, 65537, -524267, 0, 65541, -524264, 0, 0, -524263, 0, 1, -524262, 0, 1, -524261, 0, 1, -524260, 0, 1, -524259, 0, 1, -524258, 0, 5, -524253, 0, 0, -524252, 0, 1, -524251, 0, 1, -524250, 0, 1, -524249, 0, 1, -524248, 0, 1, -524247, 0, 1, -524246, 0, 1, -524245, 0, 131076, -524244, 0, 65541, -524239, 3, 0, -524237, 0, 1, -524236, 0, 1, -524235, 0, 131076, -524225, 0, 65537, -524224, 0, 65537, -524215, 0, 65537, -524214, 0, 65537, -458731, 0, 65541, -458728, 0, 65536, -458727, 0, 131074, -458726, 0, 196609, -458725, 0, 196609, -458724, 0, 196609, -458723, 0, 196609, -458722, 0, 196613, -458721, 5, 0, -458718, 5, 0, -458717, 0, 196608, -458716, 0, 196609, -458715, 0, 196609, -458714, 0, 196609, -458713, 0, 65540, -458708, 0, 65538, -458707, 0, 2, -458704, 0, 0, -458689, 0, 65537, -458688, 0, 65537, -458679, 0, 65537, -458678, 0, 65537, -393215, 0, 131074, -393214, 0, 196609, -393213, 0, 196609, -393212, 0, 196609, -393211, 0, 196609, -393210, 0, 196609, -393209, 0, 196609, -393208, 0, 196609, -393207, 0, 196609, -393206, 0, 196609, -393205, 0, 196609, -393204, 0, 196609, -393203, 0, 196609, -393202, 0, 196609, -393201, 0, 196609, -393200, 0, 196609, -393199, 0, 65540, -393195, 0, 65541, -393192, 0, 65536, -393191, 0, 65541, -393177, 0, 65536, -393176, 0, 131074, -393175, 0, 196612, -393174, 0, 196612, -393173, 0, 196612, -393172, 0, 196612, -393171, 0, 196610, -393168, 0, 196608, -393167, 0, 196612, -393166, 0, 196612, -393165, 0, 196612, -393164, 0, 196612, -393163, 0, 65540, -393153, 0, 65537, -393152, 0, 65537, -393143, 0, 65537, -393142, 0, 65537, -327679, 0, 65541, -327663, 0, 65536, -327659, 0, 65541, -327656, 0, 65536, -327655, 0, 65541, -327641, 0, 65536, -327640, 0, 65541, -327627, 0, 65536, -327622, 0, 131074, -327621, 0, 196609, -327620, 0, 196609, -327619, 0, 196609, -327618, 0, 196609, -327617, 0, 196609, -327616, 0, 196609, -327615, 0, 196609, -327614, 0, 196609, -327613, 0, 196609, -327612, 0, 196609, -327611, 0, 196609, -327610, 0, 196609, -327609, 0, 196609, -327608, 0, 196609, -327607, 0, 196609, -327606, 0, 196609, -327605, 0, 196609, -327604, 0, 196609, -327603, 0, 196609, -327602, 0, 196609, -327601, 0, 65540, -262143, 0, 65541, -262127, 0, 65536, -262124, 0, 131074, -262123, 0, 196610, -262120, 0, 196608, -262119, 0, 131075, -262118, 0, 1, -262117, 0, 2, -262113, 0, 0, -262112, 0, 1, -262111, 0, 1, -262110, 0, 1, -262109, 0, 1, -262108, 0, 5, -262105, 0, 65536, -262104, 0, 65541, -262091, 0, 65536, -262086, 0, 65541, -262065, 0, 65536, -196608, 0, 196609, -196607, 0, 196610, -196591, 0, 196608, -196590, 0, 196609, -196589, 0, 196609, -196588, 0, 196610, -196583, 0, 196608, -196582, 0, 196609, -196581, 0, 196613, -196578, 0, 0, -196577, 0, 65539, -196576, 0, 196609, -196575, 0, 196609, -196574, 0, 196609, -196573, 0, 196609, -196572, 0, 196613, -196571, 5, 0, -196570, 5, 0, -196569, 0, 196608, -196568, 0, 196613, -196555, 0, 196608, -196554, 0, 196609, -196553, 0, 196609, -196552, 0, 196609, -196551, 0, 196609, -196550, 0, 196610, -196529, 0, 196608, -196528, 0, 196609, -131042, 0, 65536, -131041, 0, 65541, -65506, 0, 65536, -65505, 0, 65541, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 1, 0, 13, 3, 0, 15, 0, 1, 16, 0, 1, 17, 0, 1, 18, 0, 1, 19, 0, 1, 20, 1, 0, 24, 3, 0, 26, 0, 1, 27, 0, 2, 30, 0, 65536, 31, 0, 65541, 34, 0, 0, 35, 0, 1, 36, 0, 1, 37, 0, 1, 38, 0, 1, 39, 0, 1, 40, 0, 1, 41, 0, 1, 42, 1, 0, 50, 3, 0, 52, 0, 1, 53, 0, 1, 54, 0, 1, 55, 0, 1, 56, 0, 1, 57, 0, 1, 58, 0, 1, 59, 0, 1, 60, 0, 1, 61, 0, 1, 62, 0, 1, 63, 0, 1, 64, 0, 1, 65, 0, 1, 66, 0, 2, 71, 0, 0, 72, 0, 1, 73, 0, 1, 74, 0, 1, 75, 0, 1, 76, 0, 1, 77, 0, 1, 78, 0, 1, 79, 0, 1, 80, 0, 1, 65539, 0, 65537, 65540, 0, 65537, 65542, 2, 0, 65549, 4, 0, 65551, 0, 65537, 65552, 0, 65537, 65557, 2, 0, 65560, 4, 0, 65563, 0, 65541, 65566, 0, 196608, 65567, 0, 196613, 65570, 0, 65536, 65576, 0, 65537, 65577, 0, 65537, 65579, 2, 0, 65586, 4, 0, 65588, 0, 65537, 65589, 0, 65537, 65602, 0, 65541, 65607, 0, 65536, 131078, 0, 65541, 131085, 0, 65536, 131093, 0, 65541, 131096, 0, 65536, 131099, 0, 65541, 131101, 5, 0, 131104, 5, 0, 131106, 0, 65536, 131115, 0, 65541, 131122, 0, 65536, 131138, 0, 65538, 131139, 0, 1, 131140, 0, 1, 131141, 0, 1, 131142, 0, 1, 131143, 0, 131076, 196614, 0, 65538, 196615, 0, 1, 196616, 0, 1, 196617, 0, 1, 196618, 0, 1, 196619, 0, 1, 196620, 0, 1, 196621, 0, 131076, 196629, 0, 65538, 196630, 0, 1, 196631, 0, 1, 196632, 0, 131076, 196635, 0, 65541, 196642, 0, 65536, 196651, 0, 65538, 196652, 0, 1, 196653, 0, 1, 196654, 0, 1, 196655, 0, 1, 196656, 0, 1, 196657, 0, 1, 196658, 0, 131076, 262171, 0, 65538, 262172, 0, 1, 262173, 0, 1, 262174, 0, 1, 262175, 0, 1, 262176, 0, 1, 262177, 0, 1, 262178, 0, 131076 )
+
+[node name="HiddenTiles" type="Node2D" parent="."]
+z_index = 2
+
+[node name="WeakFloor" parent="HiddenTiles" instance=ExtResource( 6 )]
+position = Vector2( 1856, 0 )
+z_index = 2
+break_time = 1.0
+
+[node name="TileMap" parent="HiddenTiles/WeakFloor" index="0"]
+tile_data = PoolIntArray( 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 131076, 131070, 0, 65537, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 196606, 0, 65537, 196607, 0, 65537, 131072, 0, 65537, 131073, 0, 65537, 262142, 0, 65537, 262143, 0, 65537, 196608, 0, 65537, 196609, 0, 65537, 327678, 0, 65537, 327679, 0, 65537, 262144, 0, 65537, 262145, 0, 65537 )
+
+[node name="WeakFloor2" parent="HiddenTiles" instance=ExtResource( 6 )]
+position = Vector2( 1472, 64 )
+break_time = 0.4
+
+[node name="TileMap" parent="HiddenTiles/WeakFloor2" index="0"]
+tile_data = PoolIntArray( 65534, 3, 0, 65535, 0, 1, 0, 0, 1, 1, 4, 0, 131070, 0, 65537, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 196606, 0, 65537, 196607, 0, 65537, 131072, 0, 65537, 131073, 0, 65537 )
+
+[node name="WeakFloor3" parent="HiddenTiles" instance=ExtResource( 6 )]
+position = Vector2( 2432, -256 )
+break_time = 1.0
+
+[node name="TileMap" parent="HiddenTiles/WeakFloor3" index="0"]
+tile_data = PoolIntArray( 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 131076, 131070, 0, 196609, 131071, 0, 196609, 65536, 0, 196609, 65537, 0, 196609 )
+
+[node name="WeakFloor4" parent="HiddenTiles" instance=ExtResource( 6 )]
+position = Vector2( 3008, -448 )
+
+[node name="TileMap" parent="HiddenTiles/WeakFloor4" index="0"]
+tile_data = PoolIntArray( 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 131070, 0, 196609, 131071, 0, 196609, 65536, 0, 196609, 65537, 0, 196609 )
+
+[node name="FakeWall" parent="HiddenTiles" instance=ExtResource( 7 )]
+position = Vector2( 1600, -576 )
+
+[node name="FakeTilemap" parent="HiddenTiles/FakeWall" index="0"]
+tile_data = PoolIntArray( -131076, 0, 65538, -131075, 0, 1, -131074, 0, 1, -131073, 0, 1, -65540, 0, 131074, -65539, 0, 196609, -65538, 0, 196609, -65537, 0, 65540, -131072, 0, 131074, -1, 0, 65536, -65536, 0, 65541, 65535, 0, 65536, 0, 0, 65541, 131071, 0, 65536, 65536, 0, 65538 )
+
+[node name="CollisionShape2D" parent="HiddenTiles/FakeWall" index="1"]
+position = Vector2( -64, -64 )
+shape = SubResource( 3 )
+
+[node name="FakeWall2" parent="HiddenTiles" instance=ExtResource( 7 )]
+position = Vector2( 2112, 192 )
+
+[node name="FakeTilemap" parent="HiddenTiles/FakeWall2" index="0"]
+tile_data = PoolIntArray( -131074, 0, 65538, -131073, 0, 1, -196608, 0, 1, -196607, 0, 1, -65539, 0, 65536, -65538, 0, 65537, -65537, 0, 65537, -131072, 0, 65537, -131071, 0, 65537, -3, 0, 65536, -2, 0, 65537, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65537, 65533, 0, 65536, 65534, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 131069, 0, 131076, 131070, 0, 65537, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537 )
+
+[node name="CollisionShape2D" parent="HiddenTiles/FakeWall2" index="1"]
+position = Vector2( -64, -64 )
+shape = SubResource( 4 )
+
+[node name="WeakFloor5" parent="HiddenTiles" instance=ExtResource( 6 )]
+position = Vector2( 4416, 0 )
+break_time = 0.3
+
+[node name="TileMap" parent="HiddenTiles/WeakFloor5" index="0"]
+tile_data = PoolIntArray( 65533, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 131069, 0, 65537, 131070, 0, 65537, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65537, 196605, 0, 65537, 196606, 0, 65537, 196607, 0, 65537, 131072, 0, 65537, 131073, 0, 65537, 131074, 0, 65537 )
+
+[node name="Cracks" parent="HiddenTiles/WeakFloor5" index="1"]
+margin_left = -128.0
+margin_right = 128.0
+
+[node name="CollisionShape2D" parent="HiddenTiles/WeakFloor5" index="2"]
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D" parent="HiddenTiles/WeakFloor5/StaticBody2D" index="0"]
+shape = SubResource( 8 )
+
+[node name="EndPoint" type="Node2D" parent="."]
+position = Vector2( 5184, 0 )
+
+[node name="Labels" type="Node2D" parent="."]
+z_index = -4
+
+[node name="DelayedLabel" parent="Labels" instance=ExtResource( 5 )]
+margin_left = 192.0
+margin_top = -256.0
+margin_right = 568.0
+margin_bottom = -195.0
+text = "You may have to leave me behind..."
+show_delay = 4.0
+
+[node name="DelayedLabel2" parent="Labels" instance=ExtResource( 5 )]
+margin_left = 2656.0
+margin_top = -288.0
+margin_right = 2880.0
+margin_bottom = -227.0
+text = "Well, this is it..."
+show_delay = 1.0
+
+[node name="DelayedLabel3" parent="Labels" instance=ExtResource( 5 )]
+margin_left = 2656.0
+margin_top = -224.0
+margin_right = 2880.0
+margin_bottom = -163.0
+text = "'Q' to close eyes"
+show_delay = 3.0
+
+[node name="DelayedLabel4" parent="Labels" instance=ExtResource( 5 )]
+margin_left = 2656.0
+margin_top = -160.0
+margin_right = 2880.0
+margin_bottom = -99.0
+text = "Also joypad 1"
+show_delay = 6.0
+[connection signal="detected" from="Triggers/EvilEye" to="Labels/DelayedLabel4" method="_on_signal"]
+[connection signal="detected" from="Triggers/EvilEye" to="Labels/DelayedLabel2" method="_on_signal" flags=6]
+[connection signal="detected" from="Triggers/EvilEye" to="Labels/DelayedLabel3" method="_on_signal" flags=6]
+[connection signal="detected" from="Triggers/EvilEye" to="Moving/MovingPlatform" method="_on_positive_external_signal"]
+[connection signal="detected" from="Triggers/EvilEye" to="Moving/MovingPlatform2" method="_on_positive_external_signal"]
+[connection signal="lost" from="Triggers/EvilEye" to="Moving/MovingPlatform" method="_on_negative_external_signal"]
+[connection signal="lost" from="Triggers/EvilEye" to="Moving/MovingPlatform2" method="_on_negative_external_signal"]
+[connection signal="detected" from="Triggers/EvilEye2" to="Labels/DelayedLabel" method="_on_signal" flags=6]
+[connection signal="detected" from="Triggers/EvilEye2" to="Moving/MovingPlatform4" method="_on_positive_external_signal"]
+[connection signal="detected" from="Triggers/EvilEye2" to="Moving/MovingPlatform3" method="_on_positive_external_signal"]
+[connection signal="lost" from="Triggers/EvilEye2" to="Moving/MovingPlatform4" method="_on_negative_external_signal"]
+[connection signal="lost" from="Triggers/EvilEye2" to="Moving/MovingPlatform3" method="_on_negative_external_signal"]
+[connection signal="detected" from="Triggers/EvilEye3" to="Moving/MovingPlatform5" method="_on_positive_external_signal"]
+[connection signal="lost" from="Triggers/EvilEye3" to="Moving/MovingPlatform5" method="_on_negative_external_signal"]
+[connection signal="detected" from="Triggers/EvilEye4" to="Moving/MovingPlatform6" method="_on_positive_external_signal"]
+[connection signal="lost" from="Triggers/EvilEye4" to="Moving/MovingPlatform6" method="_on_negative_external_signal"]
+
+[editable path="Triggers/EvilEye"]
+
+[editable path="Triggers/EvilEye2"]
+
+[editable path="Triggers/EvilEye3"]
+
+[editable path="Triggers/EvilEye4"]
+
+[editable path="Moving/MovingPlatform5"]
+
+[editable path="Moving/MovingPlatform6"]
+
+[editable path="HiddenTiles/WeakFloor"]
+
+[editable path="HiddenTiles/WeakFloor2"]
+
+[editable path="HiddenTiles/WeakFloor3"]
+
+[editable path="HiddenTiles/WeakFloor4"]
+
+[editable path="HiddenTiles/FakeWall"]
+
+[editable path="HiddenTiles/FakeWall2"]
+
+[editable path="HiddenTiles/WeakFloor5"]

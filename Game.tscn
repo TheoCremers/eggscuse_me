@@ -1,0 +1,183 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/CompanionBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Zones/Zone1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Egg.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/MovingPlatform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/Avara.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/fonts/Avara.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/curtain.png" type="Texture" id=10]
+[ext_resource path="res://res/TransitionShader.tres" type="Shader" id=11]
+[ext_resource path="res://scenes/Zones/TransitionZone.tscn" type="PackedScene" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 11 )
+shader_param/cutoff = 1.0
+shader_param/smooth_size = 0.25
+shader_param/mask = ExtResource( 10 )
+
+[sub_resource type="Animation" id=2]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[node name="Game" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Player" parent="World" instance=ExtResource( 2 )]
+position = Vector2( 192, 544 )
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+visible = false
+position = Vector2( -3.05176e-05, -96 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_speed = 15.0
+drag_margin_top = 0.5
+
+[node name="Egg" parent="World" instance=ExtResource( 4 )]
+position = Vector2( 512, 96 )
+
+[node name="Box" parent="World" instance=ExtResource( 1 )]
+position = Vector2( -672, 480 )
+
+[node name="MovingPlatform" parent="World" instance=ExtResource( 5 )]
+position = Vector2( -672, 544 )
+connected = true
+movement = Vector2( 0, 0 )
+
+[node name="Zone1" parent="World" instance=ExtResource( 3 )]
+
+[node name="TransitionZone" parent="World" instance=ExtResource( 12 )]
+position = Vector2( 2176, 320 )
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Overlay"]
+material = SubResource( 1 )
+margin_right = 1024.0
+margin_bottom = 608.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/ColorRect"]
+anims/CloseEyes = SubResource( 2 )
+
+[node name="RestartLabel" type="Label" parent="Overlay"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -32.0
+margin_right = 256.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 6 )
+text = "Press 'R' to restart from checkpoint.
+('select' on joypad)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DebugLabel" type="Label" parent="UI"]
+visible = false
+margin_left = 9.5
+margin_top = 9.5
+margin_right = 84.5
+margin_bottom = 23.5
+text = "placeholder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" type="Control" parent="Pause"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Pause/PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.854902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Pause/PauseMenu"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 278.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 3 )
+text = "Controls:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Label" parent="Pause/PauseMenu"]
+margin_left = 64.0
+margin_top = 128.0
+margin_right = 472.0
+margin_bottom = 312.0
+custom_fonts/font = ExtResource( 6 )
+text = "move left:
+move right:
+jump:
+pickup item:
+close eyes:
+(un)pause:
+restart:
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls2" type="Label" parent="Pause/PauseMenu"]
+margin_left = 256.0
+margin_top = 128.0
+margin_right = 704.0
+margin_bottom = 381.0
+custom_fonts/font = ExtResource( 6 )
+text = "A, left, joystick left
+D, right, joystick right
+spacebar, joypad 0
+E, left mouse button, joypad 2
+Q, right mouse button, joypad 1
+P, joypad start
+R, joypad select
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}

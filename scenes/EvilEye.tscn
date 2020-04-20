@@ -1,0 +1,53 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0007.tres" type="Texture" id=2]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0006.tres" type="Texture" id=3]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0002.tres" type="Texture" id=4]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0004.tres" type="Texture" id=5]
+[ext_resource path="res://assets/eye.sprites/eyeball.tres" type="Texture" id=6]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0003.tres" type="Texture" id=7]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0000.tres" type="Texture" id=8]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0005.tres" type="Texture" id=9]
+[ext_resource path="res://assets/eye.sprites/eyelid/eyelid_0001.tres" type="Texture" id=10]
+[ext_resource path="res://scripts/EvilEyeLid.gd" type="Script" id=11]
+[ext_resource path="res://assets/clips/on.wav" type="AudioStream" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Close",
+"speed": 16.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 192.0
+
+[node name="EvilEye" type="AnimatedSprite"]
+z_index = -1
+frames = SubResource( 1 )
+animation = "Close"
+script = ExtResource( 11 )
+
+[node name="EyeBall" type="Sprite" parent="."]
+z_index = -2
+texture = ExtResource( 6 )
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource( 2 )
+
+[node name="OnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -5.0
+
+[node name="OffSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -5.0
+pitch_scale = 0.71
+attenuation = 5.85634
+[connection signal="body_entered" from="DetectionArea" to="." method="_target_detected"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_target_lost"]

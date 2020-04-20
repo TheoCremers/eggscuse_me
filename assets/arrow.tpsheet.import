@@ -1,0 +1,15 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+path="res://.import/arrow.tpsheet-ea6bdec768907fb6d12add4e5c14d1a2.res"
+
+[deps]
+
+files=[ "res://assets/arrow.sprites/frame1_0000.tres", "res://assets/arrow.sprites/frame1_0001.tres", "res://assets/arrow.sprites/frame1_0002.tres", "res://assets/arrow.sprites/frame1_0003.tres" ]
+
+source_file="res://assets/arrow.tpsheet"
+dest_files=[ "res://.import/arrow.tpsheet-ea6bdec768907fb6d12add4e5c14d1a2.res", "res://assets/arrow.sprites/frame1_0000.tres", "res://assets/arrow.sprites/frame1_0001.tres", "res://assets/arrow.sprites/frame1_0002.tres", "res://assets/arrow.sprites/frame1_0003.tres" ]
+
+[params]
+
