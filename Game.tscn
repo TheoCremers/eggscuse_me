@@ -154,6 +154,8 @@ margin_bottom = 312.0
 custom_fonts/font = ExtResource( 6 )
 text = "move left:
 move right:
+aim up:
+aim down:
 jump:
 pickup item:
 close eyes:
@@ -172,6 +174,8 @@ margin_bottom = 381.0
 custom_fonts/font = ExtResource( 6 )
 text = "A, left, joystick left
 D, right, joystick right
+W, up, joystick up
+S, down, joystick down
 spacebar, joypad 0
 E, left mouse button, joypad 2
 Q, right mouse button, joypad 1

@@ -10,6 +10,9 @@ func _on_Area2D_body_entered(body):
 			GameManager.egg.yeet()
 	elif body.is_in_group("Player"):
 		if body.holding:
-			GameManager.call_deferred("play_ending", 1)
+			if body.holding_object.is_in_group("Egg"):
+				GameManager.call_deferred("play_ending", 1)
+			else:
+				GameManager.call_deferred("play_ending", 3)
 		else:
 			GameManager.call_deferred("play_ending", 2)

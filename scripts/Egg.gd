@@ -4,6 +4,7 @@ signal destroyed
 
 var free = false
 var velocity = Vector2.ZERO
+var tween
 
 var caught = false
 var cracked = false
@@ -31,7 +32,9 @@ func _integrate_forces(state):
 		s2 = 0
 
 # Called when the node enters the scene tree for the first time.
-func _ready(): 
+func _ready():
+	tween = Tween.new()
+	add_child(tween)
 	contact_monitor = true
 	contacts_reported = 10
 	connect("body_entered", self, "on_body_entered")
@@ -65,17 +68,22 @@ func yeet():
 	mode = 3
 	free = true
 	# accelerate egg
-	var tween = Tween.new()
-	add_child(tween)
 	tween.interpolate_property(self, "velocity", Vector2(0.0, -3500), Vector2.ZERO, 10)
 	tween.start()
 
 func reset(saved_position):
 	mode = 3 # kinematic
+	
+	# stop ending
+	if free:
+		free = false
+		tween.stop(self)
+	
 	position = saved_position
 	rotation = 0
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0
+	
 	if cracked:
 		cracked = false
 		$Sprite.texture = load("res://assets/egg.png")
