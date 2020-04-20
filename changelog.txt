@@ -3,3 +3,4 @@
 - Unintended route during moving platform section removed
 - Added up and down to pause menu control list
 - Secret ending message displayed
+- Sliding door added to final zone, for emphasis
